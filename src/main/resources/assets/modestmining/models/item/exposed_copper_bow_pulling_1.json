@@ -1,0 +1,6 @@
+{
+    "parent": "item/bow",
+    "textures": {
+        "layer0": "modestmining:item/exposed_copper_bow_pulling_1"
+    }
+}

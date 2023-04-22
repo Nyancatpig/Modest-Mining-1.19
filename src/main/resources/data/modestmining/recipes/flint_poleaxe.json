@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X#",
+    "#F"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:flint"
+    },
+    "F": {
+      "item": "modestmining:fiber"
+    }
+  },
+  "result": {
+    "item": "modestmining:flint_poleaxe"
+  }
+}

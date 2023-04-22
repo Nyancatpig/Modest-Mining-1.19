@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": [
+    {
+      "item": "modestmining:steel_pickaxe"
+    },
+    {
+      "item": "modestmining:steel_shovel"
+    },
+    {
+      "item": "modestmining:steel_axe"
+    },
+    {
+      "item": "modestmining:steel_hoe"
+    },
+    {
+      "item": "modestmining:steel_sword"
+    },
+    {
+      "item": "modestmining:steel_helmet"
+    },
+    {
+      "item": "modestmining:steel_chestplate"
+    },
+    {
+      "item": "modestmining:steel_leggings"
+    },
+    {
+      "item": "modestmining:steel_boots"
+    }
+  ],
+  "result": "modestmining:steel_nugget",
+  "experience": 0.1,
+  "cookingtime": 100
+}

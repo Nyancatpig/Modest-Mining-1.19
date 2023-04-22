@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "modestmining:adobe_brick"
+    }
+  },
+  "result": {
+    "item": "modestmining:adobe_bricks"
+  }
+}

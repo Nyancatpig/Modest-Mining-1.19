@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:golden_leggings"
+  },
+  "addition": {
+    "tag": "modestmining:rosegold_platings"
+  },
+  "result": {
+    "item": "modestmining:rosegold_leggings"
+  }
+}

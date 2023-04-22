@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "chiseling=0": [
+      { "model": "modestmining:block/ancient_stone0" }
+    ],
+    "chiseling=1": [
+      { "model": "modestmining:block/ancient_stone1" }
+    ],
+    "chiseling=2": [
+      { "model": "modestmining:block/ancient_stone2" }
+    ],
+    "chiseling=3": [
+      { "model": "modestmining:block/ancient_stone3" }
+    ]
+  }
+}

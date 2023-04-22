@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    " # ",
+    "#B#"
+  ],
+  "key": {
+    "#": {
+      "item": "modestmining:exposed_copper_ingot"
+    },
+    "X": {
+      "item": "modestmining:amethyst"
+    },
+    "B": {
+      "item": "modestmining:copper_screw"
+    }
+  },
+  "result": {
+    "item": "modestmining:exposed_copper_chisel"
+  }
+}

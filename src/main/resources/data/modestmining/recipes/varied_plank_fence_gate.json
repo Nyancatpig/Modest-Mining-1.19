@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "&#&",
+    "&#&"
+  ],
+  "key": {
+    "#": {
+      "item": "modestmining:varied_planks"
+    },
+    "&": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "modestmining:varied_plank_fence_gate"
+  }
+}

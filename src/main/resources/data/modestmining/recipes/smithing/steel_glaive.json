@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "modestmining:iron_glaive"
+  },
+  "addition": {
+    "tag": "modestmining:steel_pieces"
+  },
+  "result": {
+    "item": "modestmining:steel_glaive"
+  }
+}

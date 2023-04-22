@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "modestmining:diamond_katana"
+  },
+  "addition": {
+    "tag": "modestmining:prismarite_pieces"
+  },
+  "result": {
+    "item": "modestmining:prismarite_katana"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:diamond_sword"
+  },
+  "addition": {
+    "tag": "modestmining:prismarite_pieces"
+  },
+  "result": {
+    "item": "modestmining:prismarite_sword"
+  }
+}

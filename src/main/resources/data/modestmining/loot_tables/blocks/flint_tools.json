@@ -1,0 +1,91 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 0.25
+              },
+              "add": false
+            }
+          ],
+          "weight": 2,
+          "name": "modestmining:flint_blade"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 0.25
+              },
+              "add": false
+            }
+          ],
+          "weight": 2,
+          "name": "modestmining:flint_hatchet"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 0.25
+              },
+              "add": false
+            }
+          ],
+          "weight": 2,
+          "name": "modestmining:flint_mattock"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 0.25
+              },
+              "add": false
+            }
+          ],
+          "weight": 2,
+          "name": "modestmining:flint_spade"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "type": "minecraft:uniform",
+                "min": 0.0,
+                "max": 0.25
+              },
+              "add": false
+            }
+          ],
+          "weight": 2,
+          "name": "modestmining:flint_hoe"
+        }
+      ]
+    }
+  ]
+}

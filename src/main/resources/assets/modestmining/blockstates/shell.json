@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "modestmining:block/shell" },
+      { "model": "modestmining:block/shell", "y": 90 },
+      { "model": "modestmining:block/shell", "y": 180 },
+      { "model": "modestmining:block/shell", "y": 270 }
+    ]
+  }
+}

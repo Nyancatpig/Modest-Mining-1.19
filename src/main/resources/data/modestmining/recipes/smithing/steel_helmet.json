@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:iron_helmet"
+  },
+  "addition": {
+    "tag": "modestmining:steel_platings"
+  },
+  "result": {
+    "item": "modestmining:steel_helmet"
+  }
+}

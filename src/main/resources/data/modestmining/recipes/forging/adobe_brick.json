@@ -1,0 +1,33 @@
+{
+  "type": "modestmining:forging",
+  "ingredients": [
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "modestmining:fiber"
+    },
+    {
+      "item": "modestmining:fiber"
+    },
+    {
+      "item": "modestmining:fiber"
+    },
+    {
+      "item": "modestmining:fiber"
+    }
+  ],
+  "output": {
+    "item": "modestmining:adobe_brick",
+    "count": 8
+  }
+}

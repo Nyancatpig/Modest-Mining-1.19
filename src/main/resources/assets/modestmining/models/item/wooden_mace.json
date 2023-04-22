@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate-perspective",
+  "textures": {
+    "layer0": "modestmining:item/wooden_mace_gui"
+  },
+  "base": {
+    "parent": "modestmining:item/wooden_mace_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "modestmining:item/wooden_mace_gui"
+    },
+    "fixed": {
+      "parent": "modestmining:item/wooden_mace_gui"
+    }
+  }
+}

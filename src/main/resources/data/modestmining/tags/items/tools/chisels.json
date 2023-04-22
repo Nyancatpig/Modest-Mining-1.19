@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "modestmining:copper_chisel",
+    "modestmining:exposed_copper_chisel",
+    "modestmining:weathered_copper_chisel",
+    "modestmining:oxidized_copper_chisel"
+  ]
+}

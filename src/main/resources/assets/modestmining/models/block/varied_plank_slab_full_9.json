@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "modestmining:block/varied_planks_9",
+    "top": "modestmining:block/varied_planks_9",
+    "side": "modestmining:block/varied_planks_9"
+  }
+}

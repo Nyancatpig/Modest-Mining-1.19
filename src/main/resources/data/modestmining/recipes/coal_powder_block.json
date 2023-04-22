@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "modestmining:coal_powder"
+    }
+  },
+  "result": {
+    "item": "modestmining:coal_powder_block"
+  }
+}

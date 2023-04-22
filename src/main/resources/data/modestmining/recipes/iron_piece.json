@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "@"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "@": {
+      "tag": "modestmining:hammers"
+    }
+  },
+  "result": {
+    "item": "modestmining:iron_piece",
+    "count": 2
+  }
+}

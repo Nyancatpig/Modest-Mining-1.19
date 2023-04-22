@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #X",
+    "#BX",
+    " #X"
+  ],
+  "key": {
+    "#": {
+      "item": "modestmining:weathered_copper_ingot"
+    },
+    "X": {
+      "item": "minecraft:string"
+    },
+    "B": {
+      "item": "modestmining:copper_screw"
+    }
+  },
+  "result": {
+    "item": "modestmining:weathered_copper_bow"
+  }
+}

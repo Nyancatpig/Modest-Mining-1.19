@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "modestmining:plank"
+    },
+    {
+      "item": "modestmining:plank"
+    },
+    {
+      "item": "modestmining:plank"
+    },
+    {
+      "item": "modestmining:plank"
+    }
+  ],
+  "result": {
+    "item": "modestmining:varied_planks"
+  }
+}

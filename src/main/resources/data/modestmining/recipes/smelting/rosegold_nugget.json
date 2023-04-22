@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": [
+    {
+      "item": "modestmining:rosegold_pickaxe"
+    },
+    {
+      "item": "modestmining:rosegold_shovel"
+    },
+    {
+      "item": "modestmining:rosegold_axe"
+    },
+    {
+      "item": "modestmining:rosegold_hoe"
+    },
+    {
+      "item": "modestmining:rosegold_sword"
+    },
+    {
+      "item": "modestmining:rosegold_helmet"
+    },
+    {
+      "item": "modestmining:rosegold_chestplate"
+    },
+    {
+      "item": "modestmining:rosegold_leggings"
+    },
+    {
+      "item": "modestmining:rosegold_boots"
+    }
+  ],
+  "result": "modestmining:rosegold_nugget",
+  "experience": 0.1,
+  "cookingtime": 200
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side",
+  "textures": {
+    "wall": "modestmining:block/mossy_adobe_bricks"
+  }
+}

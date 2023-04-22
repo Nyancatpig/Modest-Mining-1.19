@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate-perspective",
+  "textures": {
+    "layer0": "modestmining:item/stone_glaive_gui"
+  },
+  "base": {
+    "parent": "modestmining:item/stone_glaive_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "modestmining:item/stone_glaive_gui"
+    },
+    "fixed": {
+      "parent": "modestmining:item/stone_glaive_gui"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate-perspective",
+  "textures": {
+    "layer0": "modestmining:item/netherite_katana_gui"
+  },
+  "base": {
+    "parent": "modestmining:item/netherite_katana_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "modestmining:item/netherite_katana_gui"
+    },
+    "fixed": {
+      "parent": "modestmining:item/netherite_katana_gui"
+    }
+  }
+}

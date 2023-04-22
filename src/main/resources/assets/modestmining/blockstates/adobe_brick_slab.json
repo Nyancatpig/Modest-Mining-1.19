@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "modestmining:block/adobe_brick_slab"
+    },
+    "type=double": {
+      "model": "modestmining:block/adobe_brick_slab_full"
+    },
+    "type=top": {
+      "model": "modestmining:block/adobe_brick_slab_top"
+    }
+  }
+}

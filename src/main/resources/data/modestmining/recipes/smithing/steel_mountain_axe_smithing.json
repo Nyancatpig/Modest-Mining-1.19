@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "modestmining:iron_mountain_axe"
+  },
+  "addition": {
+    "tag": "modestmining:steel_pieces"
+  },
+  "result": {
+    "item": "modestmining:steel_mountain_axe"
+  }
+}

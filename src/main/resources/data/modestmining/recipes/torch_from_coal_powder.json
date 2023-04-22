@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "@"
+  ],
+  "key": {
+    "#": {
+      "item": "modestmining:coal_powder"
+    },
+    "@": {
+      "tag": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "modestmining:torch",
+    "count": 4
+  }
+}

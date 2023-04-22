@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "F#F",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "tag": "minecraft:planks"
+    },
+    "F": {
+      "item": "modestmining:fiber"
+    }
+  },
+  "result": {
+    "item": "minecraft:wooden_shovel"
+  }
+}

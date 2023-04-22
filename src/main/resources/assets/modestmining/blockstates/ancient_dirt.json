@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "brushing=0": [
+      { "model": "modestmining:block/ancient_dirt0" },
+      { "model": "modestmining:block/ancient_dirt0", "y": 90 },
+      { "model": "modestmining:block/ancient_dirt0", "y": 180 },
+      { "model": "modestmining:block/ancient_dirt0", "y": 270 }
+    ],
+    "brushing=1": [
+      { "model": "modestmining:block/ancient_dirt1" },
+      { "model": "modestmining:block/ancient_dirt1", "y": 90 },
+      { "model": "modestmining:block/ancient_dirt1", "y": 180 },
+      { "model": "modestmining:block/ancient_dirt1", "y": 270 }
+    ],
+    "brushing=2": [
+      { "model": "modestmining:block/ancient_dirt2" },
+      { "model": "modestmining:block/ancient_dirt2", "y": 90 },
+      { "model": "modestmining:block/ancient_dirt2", "y": 180 },
+      { "model": "modestmining:block/ancient_dirt2", "y": 270 }
+    ],
+    "brushing=3": [
+      { "model": "modestmining:block/ancient_dirt3" },
+      { "model": "modestmining:block/ancient_dirt3", "y": 90 },
+      { "model": "modestmining:block/ancient_dirt3", "y": 180 },
+      { "model": "modestmining:block/ancient_dirt3", "y": 270 }
+    ]
+  }
+}

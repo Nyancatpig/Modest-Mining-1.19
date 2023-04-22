@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:golden_apple"
+  },
+  "addition": {
+    "tag": "modestmining:rosegold_pieces"
+  },
+  "result": {
+    "item": "modestmining:rosegold_apple"
+  }
+}

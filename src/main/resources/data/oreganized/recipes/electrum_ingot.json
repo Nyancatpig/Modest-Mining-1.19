@@ -1,0 +1,32 @@
+{
+  "type": "modestmining:forging",
+  "ingredients": [
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "oreganized:silver_ingot"
+    },
+    {
+      "item": "oreganized:silver_ingot"
+    },
+    {
+      "item": "oreganized:silver_ingot"
+    },
+    {
+      "item": "oreganized:silver_ingot"
+    },
+    {
+      "item": "oreganized:silver_ingot"
+    }
+  ],
+  "output": {
+    "item": "oreganized:electrum_ingot"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " XX",
+    "#XX",
+    "## "
+  ],
+  "key": {
+    "#": {
+      "item": "modestmining:exposed_copper_ingot"
+    },
+    "X": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+    "item": "modestmining:exposed_copper_brush"
+  }
+}

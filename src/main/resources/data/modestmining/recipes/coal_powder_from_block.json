@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "modestmining:coal_powder_block"
+    }
+  ],
+  "result": {
+    "item": "modestmining:coal_powder",
+    "count": 9
+  }
+}

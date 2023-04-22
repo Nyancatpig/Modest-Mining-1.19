@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "modestmining:coke_block",
+    "modestmining:steel_block",
+    "modestmining:rosegold_block",
+    "modestmining:prismarite_block",
+    "modestmining:compact_amethyst_block",
+    "modestmining:diamond_shard_block",
+    "modestmining:forge",
+    "modestmining:oceanic_remains",
+    "modestmining:ancient_stone",
+    "modestmining:shell",
+    "modestmining:rocks",
+    "modestmining:cement",
+    "modestmining:adobe_bricks",
+    "modestmining:adobe_brick_slab",
+    "modestmining:adobe_brick_stairs",
+    "modestmining:adobe_brick_wall",
+    "modestmining:cracked_adobe_bricks",
+    "modestmining:mossy_adobe_bricks",
+    "modestmining:mossy_adobe_brick_slab",
+    "modestmining:mossy_adobe_brick_stairs",
+    "modestmining:mossy_adobe_brick_wall"
+  ]
+}

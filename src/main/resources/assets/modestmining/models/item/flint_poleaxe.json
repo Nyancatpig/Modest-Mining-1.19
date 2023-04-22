@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate-perspective",
+  "textures": {
+    "layer0": "modestmining:item/flint_poleaxe_gui"
+  },
+  "base": {
+    "parent": "modestmining:item/flint_poleaxe_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "modestmining:item/flint_poleaxe_gui"
+    },
+    "fixed": {
+      "parent": "modestmining:item/flint_poleaxe_gui"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "modestmining:diamond_mountain_axe"
+  },
+  "addition": {
+    "tag": "modestmining:prismarite_pieces"
+  },
+  "result": {
+    "item": "modestmining:prismarite_mountain_axe"
+  }
+}

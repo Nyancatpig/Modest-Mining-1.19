@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:diamond_leggings"
+  },
+  "addition": {
+    "tag": "modestmining:prismarite_platings"
+  },
+  "result": {
+    "item": "modestmining:prismarite_leggings"
+  }
+}

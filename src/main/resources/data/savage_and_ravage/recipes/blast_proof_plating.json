@@ -1,0 +1,33 @@
+{
+  "type": "modestmining:forging",
+  "ingredients": [
+    {
+      "item": "savage_and_ravage:creeper_spores"
+    },
+    {
+      "item": "savage_and_ravage:creeper_spores"
+    },
+    {
+      "item": "savage_and_ravage:creeper_spores"
+    },
+    {
+      "item": "savage_and_ravage:creeper_spores"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "output": {
+    "item": "savage_and_ravage:blast_proof_plating",
+    "count": 2
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# ",
+    "#@",
+    "# "
+  ],
+  "key": {
+    "#": {
+      "item": "modestmining:rosegold_ingot"
+    },
+    "@": {
+      "tag": "modestmining:hammers"
+    }
+  },
+  "result": {
+    "item": "modestmining:rosegold_piece",
+    "count": 4
+  }
+}

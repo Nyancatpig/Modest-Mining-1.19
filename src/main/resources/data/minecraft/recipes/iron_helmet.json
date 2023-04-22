@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "tag": "modestmining:iron_platings"
+    }
+  },
+  "result": {
+    "item": "minecraft:iron_helmet"
+  }
+}

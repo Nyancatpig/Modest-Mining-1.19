@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "modestmining:plank"
+    }
+  },
+  "result": {
+    "item": "modestmining:varied_plank_button"
+  }
+}

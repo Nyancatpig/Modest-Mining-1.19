@@ -1,6 +1,18 @@
 package com.ncpbails.modestmining;
 
 import com.mojang.logging.LogUtils;
+import com.ncpbails.modestmining.block.ModBlocks;
+import com.ncpbails.modestmining.block.entity.ModBlockEntities;
+import com.ncpbails.modestmining.effect.ModEffects;
+import com.ncpbails.modestmining.entity.ModEntityTypes;
+import com.ncpbails.modestmining.item.ModItems;
+import com.ncpbails.modestmining.recipe.ModRecipes;
+import com.ncpbails.modestmining.screen.ModMenuTypes;
+import com.ncpbails.modestmining.world.feature.ModConfiguredFeatures;
+import com.ncpbails.modestmining.world.feature.ModPlacedFeatures;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.WaterAnimal;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,17 +33,27 @@ public class ModestMining
 
     public ModestMining()
     {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        modEventBus.addListener(this::commonSetup);
+        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        eventBus.addListener(this::commonSetup);
 
-
+        ModEffects.register(eventBus);
+        ModItems.register(eventBus);
+        ModBlocks.register(eventBus);
+        ModBlockEntities.register(eventBus);
+        ModConfiguredFeatures.register(eventBus);
+        ModPlacedFeatures.register(eventBus);
+        ModMenuTypes.register(eventBus);
+        ModRecipes.register(eventBus);
+        ModEntityTypes.register(eventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+        SpawnPlacements.register(ModEntityTypes.CLAM.get(),
+                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                WaterAnimal::checkMobSpawnRules);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

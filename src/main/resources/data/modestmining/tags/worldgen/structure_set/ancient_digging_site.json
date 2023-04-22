@@ -1,0 +1,19 @@
+{
+
+  "structures": [
+    {
+      "structure": "tutorialmod:kaupen_house",
+      "weight": 1
+    }
+  ],
+  "placement": {
+
+    "salt": 1333135534,
+
+    "spacing": 20,
+
+    "separation": 6,
+
+    "type": "minecraft:random_spread"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:diamond_helmet"
+  },
+  "addition": {
+    "tag": "modestmining:prismarite_platings"
+  },
+  "result": {
+    "item": "modestmining:prismarite_helmet"
+  }
+}

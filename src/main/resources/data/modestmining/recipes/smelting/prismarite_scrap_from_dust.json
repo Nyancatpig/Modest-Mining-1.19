@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": [
+    {
+      "item": "modestmining:remaining_dust"
+    }
+  ],
+  "result": "modestmining:prismarite_scrap",
+  "experience": 0.1,
+  "cookingtime": 100
+}

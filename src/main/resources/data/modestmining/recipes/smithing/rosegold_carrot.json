@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:golden_carrot"
+  },
+  "addition": {
+    "item": "modestmining:rosegold_nugget"
+  },
+  "result": {
+    "item": "modestmining:rosegold_carrot"
+  }
+}

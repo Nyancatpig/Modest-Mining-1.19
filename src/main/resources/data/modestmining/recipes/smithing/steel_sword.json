@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:iron_sword"
+  },
+  "addition": {
+    "tag": "modestmining:steel_pieces"
+  },
+  "result": {
+    "item": "modestmining:steel_sword"
+  }
+}

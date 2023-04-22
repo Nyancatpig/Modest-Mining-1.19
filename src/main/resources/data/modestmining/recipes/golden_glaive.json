@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX#",
+    "X#@",
+    "#  "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "tag": "modestmining:gold_pieces"
+    },
+    "@": {
+      "item": "modestmining:gold_piece"
+    }
+  },
+  "result": {
+    "item": "modestmining:golden_glaive"
+  }
+}

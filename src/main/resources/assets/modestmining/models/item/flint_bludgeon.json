@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate-perspective",
+  "textures": {
+    "layer0": "modestmining:item/flint_bludgeon_gui"
+  },
+  "base": {
+    "parent": "modestmining:item/flint_bludgeon_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "modestmining:item/flint_bludgeon_gui"
+    },
+    "fixed": {
+      "parent": "modestmining:item/flint_bludgeon_gui"
+    }
+  }
+}

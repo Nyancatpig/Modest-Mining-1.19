@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate-perspective",
+  "textures": {
+    "layer0": "modestmining:item/diamond_katana_gui"
+  },
+  "base": {
+    "parent": "modestmining:item/diamond_katana_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "modestmining:item/diamond_katana_gui"
+    },
+    "fixed": {
+      "parent": "modestmining:item/diamond_katana_gui"
+    }
+  }
+}

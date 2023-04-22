@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "@"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "@": {
+      "tag": "modestmining:hammers"
+    }
+  },
+  "result": {
+    "item": "modestmining:diamond_piece",
+    "count": 2
+  }
+}

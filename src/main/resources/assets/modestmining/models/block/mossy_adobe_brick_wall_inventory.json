@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "modestmining:block/mossy_adobe_bricks"
+  }
+}

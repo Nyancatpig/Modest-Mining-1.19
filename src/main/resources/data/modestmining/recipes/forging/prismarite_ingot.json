@@ -1,0 +1,32 @@
+{
+  "type": "modestmining:forging",
+  "ingredients": [
+    {
+      "item": "modestmining:prismarite_scrap"
+    },
+    {
+      "item": "modestmining:prismarite_scrap"
+    },
+    {
+      "item": "modestmining:prismarite_scrap"
+    },
+    {
+      "item": "modestmining:prismarite_scrap"
+    },
+    {
+      "item": "modestmining:pearl"
+    },
+    {
+      "item": "modestmining:pearl"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "output": {
+    "item": "modestmining:prismarite_ingot"
+  }
+}
