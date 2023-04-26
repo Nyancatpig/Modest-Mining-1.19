@@ -37,24 +37,16 @@ public class ClamEntity extends WaterAnimal implements IAnimatable {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, false));
-        this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
-
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Creeper.class, true));
+        this.targetSelector.addGoal(6, (new HurtByTargetGoal(this)).setAlertOthers());
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.chomper.walk", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.clam.idle", true));
             return PlayState.CONTINUE;
         }
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.chomper.idle", true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.clam.idle", true));
         return PlayState.CONTINUE;
     }
 
@@ -70,23 +62,23 @@ public class ClamEntity extends WaterAnimal implements IAnimatable {
     }
 
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, 0.15F, 1.0F);
+        this.playSound(SoundEvents.TURTLE_EGG_CRACK, 0.15F, 1.0F);
     }
 
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.CAT_STRAY_AMBIENT;
+        return SoundEvents.BUBBLE_COLUMN_BUBBLE_POP;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.DOLPHIN_HURT;
+        return SoundEvents.TURTLE_EGG_CRACK;
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.DOLPHIN_DEATH;
+        return SoundEvents.TURTLE_EGG_HATCH;
     }
 
     protected float getSoundVolume() {
-        return 0.2F;
+        return 0.1F;
     }
 
 }

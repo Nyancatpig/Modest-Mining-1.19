@@ -5,11 +5,15 @@ import com.ncpbails.modestmining.block.ModBlocks;
 import com.ncpbails.modestmining.block.entity.ModBlockEntities;
 import com.ncpbails.modestmining.effect.ModEffects;
 import com.ncpbails.modestmining.entity.ModEntityTypes;
+import com.ncpbails.modestmining.entity.client.ClamRenderer;
 import com.ncpbails.modestmining.item.ModItems;
 import com.ncpbails.modestmining.recipe.ModRecipes;
+import com.ncpbails.modestmining.screen.ForgeScreen;
 import com.ncpbails.modestmining.screen.ModMenuTypes;
 import com.ncpbails.modestmining.world.feature.ModConfiguredFeatures;
 import com.ncpbails.modestmining.world.feature.ModPlacedFeatures;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -23,6 +27,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ModestMining.MOD_ID)
@@ -45,6 +50,7 @@ public class ModestMining
         ModMenuTypes.register(eventBus);
         ModRecipes.register(eventBus);
         ModEntityTypes.register(eventBus);
+        GeckoLib.initialize();
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -52,7 +58,7 @@ public class ModestMining
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         SpawnPlacements.register(ModEntityTypes.CLAM.get(),
-                SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SpawnPlacements.Type.IN_WATER, Heightmap.Types.OCEAN_FLOOR,
                 WaterAnimal::checkMobSpawnRules);
     }
 
@@ -70,7 +76,8 @@ public class ModestMining
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            EntityRenderers.register(ModEntityTypes.CLAM.get(), ClamRenderer::new);
+            MenuScreens.register(ModMenuTypes.FORGE_MENU.get(), ForgeScreen::new);
         }
     }
 }
