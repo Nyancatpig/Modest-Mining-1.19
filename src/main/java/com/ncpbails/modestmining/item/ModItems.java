@@ -135,28 +135,10 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(ModFoods.ROSEGOLD_CARROT)));
 
     //TOOLS                                                                                                                            attack      speed
-    public static final RegistryObject<Item> COPPER_BRUSH = ITEMS.register("copper_brush", () -> new BrushItem(0f,0f, ModTiers.COPPER,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS).durability(600)));
-
-    public static final RegistryObject<Item> EXPOSED_COPPER_BRUSH = ITEMS.register("exposed_copper_brush", () -> new BrushItem(0f,0f, ModTiers.COPPER,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS).durability(550)));
-
-    public static final RegistryObject<Item> WEATHERED_COPPER_BRUSH = ITEMS.register("weathered_copper_brush", () -> new BrushItem(0f,0f, ModTiers.COPPER,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS).durability(500)));
-
-    public static final RegistryObject<Item> OXIDIZED_COPPER_BRUSH = ITEMS.register("oxidized_copper_brush", () -> new BrushItem(0f,0f, ModTiers.COPPER,
+    public static final RegistryObject<Item> BRUSH = ITEMS.register("brush", () -> new BrushItem(0f,0f, ModTiers.COPPER,
             new Item.Properties().tab(CreativeModeTab.TAB_TOOLS).durability(450)));
 
-    public static final RegistryObject<Item> COPPER_CHISEL = ITEMS.register("copper_chisel", () -> new ChiselItem(0f,0f, ModTiers.COPPER,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS).durability(600)));
-
-    public static final RegistryObject<Item> EXPOSED_COPPER_CHISEL = ITEMS.register("exposed_copper_chisel", () -> new ChiselItem(0f,0f, ModTiers.COPPER,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS).durability(550)));
-
-    public static final RegistryObject<Item> WEATHERED_COPPER_CHISEL = ITEMS.register("weathered_copper_chisel", () -> new ChiselItem(0f,0f, ModTiers.COPPER,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS).durability(500)));
-
-    public static final RegistryObject<Item> OXIDIZED_COPPER_CHISEL = ITEMS.register("oxidized_copper_chisel", () -> new ChiselItem(0f,0f, ModTiers.COPPER,
+    public static final RegistryObject<Item> CHISEL = ITEMS.register("chisel", () -> new ChiselItem(0f,0f, ModTiers.COPPER,
             new Item.Properties().tab(CreativeModeTab.TAB_TOOLS).durability(450)));
 
     public static final RegistryObject<Item> FLINT_BLADE = ITEMS.register("flint_blade", () -> new SwordItem(ModTiers.FLINT, 1, -3,

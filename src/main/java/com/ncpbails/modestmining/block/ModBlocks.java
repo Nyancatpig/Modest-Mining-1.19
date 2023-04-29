@@ -2,13 +2,13 @@ package com.ncpbails.modestmining.block;
 
 import com.ncpbails.modestmining.ModestMining;
 import com.ncpbails.modestmining.block.custom.BrushingBlock;
-import com.ncpbails.modestmining.block.custom.ChiselingBlock;
 import com.ncpbails.modestmining.block.custom.ForgeBlock;
 import com.ncpbails.modestmining.block.entity.custom.RockBlock;
 import com.ncpbails.modestmining.block.entity.custom.ShellBlock;
 import com.ncpbails.modestmining.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -97,11 +97,16 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.AMETHYST_BLOCK).sound(SoundType.METAL)), CreativeModeTab.TAB_BUILDING_BLOCKS, false, 0);
 
 
-    public static final RegistryObject<Block> ANCIENT_DIRT = registerBlockNoItem("ancient_dirt",
-            () -> new BrushingBlock(BlockBehaviour.Properties.copy(Blocks.DIRT).noOcclusion()));
+    public static final RegistryObject<Block> SUSPICIOUS_DIRT = registerBlock("suspicious_dirt",
+            () -> new BrushingBlock(BlockBehaviour.Properties.copy(Blocks.DIRT).noOcclusion()), CreativeModeTab.TAB_BUILDING_BLOCKS, false, 0);
 
-    public static final RegistryObject<Block> ANCIENT_STONE = registerBlockNoItem("ancient_stone",
-            () -> new ChiselingBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
+    public static final RegistryObject<Block> SUSPICIOUS_SAND = registerBlock("suspicious_sand",
+            () -> new BrushingBlock(BlockBehaviour.Properties.copy(Blocks.SAND).noOcclusion()), CreativeModeTab.TAB_BUILDING_BLOCKS, false, 0);
+
+    public static final RegistryObject<Block> SUSPICIOUS_GRAVEL = registerBlock("suspicious_gravel",
+            () -> new BrushingBlock(BlockBehaviour.Properties.copy(Blocks.GRAVEL).noOcclusion()), CreativeModeTab.TAB_BUILDING_BLOCKS, false, 0);
+    public static final RegistryObject<Block> SUSPICIOUS_STONE = registerBlock("suspicious_stone",
+            () -> new BrushingBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()), CreativeModeTab.TAB_BUILDING_BLOCKS, false, 0);
 
     public static final RegistryObject<Block> SHELL = registerBlock("shell",
             () -> new ShellBlock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_LIGHT_GRAY)

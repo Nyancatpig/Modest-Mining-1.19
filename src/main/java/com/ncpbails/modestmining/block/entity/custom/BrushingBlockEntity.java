@@ -1,10 +1,13 @@
 package com.ncpbails.modestmining.block.entity.custom;
 
+import com.ncpbails.modestmining.block.ModBlocks;
+import com.ncpbails.modestmining.block.custom.BrushingBlock;
 import com.ncpbails.modestmining.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.Level;
@@ -16,6 +19,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Random;
 
+import static com.ncpbails.modestmining.block.custom.BrushingBlock.BRUSHING;
 import static net.minecraft.world.level.block.Block.dropResources;
 
 public class BrushingBlockEntity extends BlockEntity {
@@ -24,8 +28,10 @@ public class BrushingBlockEntity extends BlockEntity {
     public int maxProgress = 120;
     public boolean canProgress = false;
 
+
     public BrushingBlockEntity(BlockPos pPos, BlockState pState) {
         super(ModBlockEntities.BRUSHING_BLOCK_ENTITY.get(), pPos, pState);
+
     }
 
     @Override
@@ -56,17 +62,29 @@ public class BrushingBlockEntity extends BlockEntity {
             if (pBlockEntity.brushProgress < pBlockEntity.maxProgress) {
                 pBlockEntity.brushProgress++;
                 if (pBlockEntity.playerProgress - 16 > pBlockEntity.brushProgress) {
-                    worldIn.removeBlock(pos, true);
+                    pBlockEntity.canProgress = false;
+                    pBlockEntity.brushProgress = 0;
+                    pBlockEntity.playerProgress = 0;
+                    worldIn.setBlock(pos, state.setValue(BRUSHING, 0), 3);
                 }
                 if (pBlockEntity.playerProgress + 8 < pBlockEntity.brushProgress) {
-                    worldIn.removeBlock(pos, true);
+                    pBlockEntity.canProgress = false;
+                    pBlockEntity.brushProgress = 0;
+                    pBlockEntity.playerProgress = 0;
+                    worldIn.setBlock(pos, state.setValue(BRUSHING, 0), 3);
                 }
-            } else {
-                dropResources(state, worldIn, pos);
-                worldIn.removeBlock(pos, true);
-                worldIn.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.GRASS_BREAK, SoundSource.BLOCKS, 0.25F, 0.5F);
-                worldIn.addParticle(new BlockParticleOption(ParticleTypes.BLOCK, state), (double) pos.getX() + (double) random.nextFloat(), (double) pos.getY() + 1.1D, (double) pos.getZ() + (double) random.nextFloat(), 0.0D, 0.0D, 0.0D);
             }
+        }
+        if (pBlockEntity.brushProgress >= pBlockEntity.maxProgress) {
+            dropResources(state, worldIn, pos);
+            worldIn.removeBlock(pos, true);
+            if (worldIn.getBlockState(pos).getBlock() != ModBlocks.SUSPICIOUS_STONE.get()) {
+                worldIn.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.GRASS_BREAK, SoundSource.BLOCKS, 0.25F, 0.5F);
+            }
+            else {
+                worldIn.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.STONE_BREAK, SoundSource.BLOCKS, 0.25F, 0.5F);
+            }
+            worldIn.addParticle(new BlockParticleOption(ParticleTypes.BLOCK, state), (double) pos.getX() + (double) random.nextFloat(), (double) pos.getY() + 1.1D, (double) pos.getZ() + (double) random.nextFloat(), 0.0D, 0.0D, 0.0D);
         }
     }
 }
