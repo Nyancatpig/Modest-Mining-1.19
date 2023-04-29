@@ -53,20 +53,8 @@
   "item.modestmining.rosegold_carrot": "Rosegold Carrot",
   "item.modestmining.enchanted_rosegold_apple": "Enchanted Rosegold Apple",
 
-  "item.modestmining.copper_bow": "Copper Bow",
-  "item.modestmining.exposed_copper_bow": "Exposed Copper Bow",
-  "item.modestmining.weathered_copper_bow": "Weathered Copper Bow",
-  "item.modestmining.oxidized_copper_bow": "Oxidized Copper Bow",
-
-  "item.modestmining.copper_brush": "Copper Brush",
-  "item.modestmining.exposed_copper_brush": "Exposed Copper Brush",
-  "item.modestmining.weathered_copper_brush": "Weathered Copper Brush",
-  "item.modestmining.oxidized_copper_brush": "Oxidized Copper Brush",
-
-  "item.modestmining.copper_chisel": "Copper Chisel",
-  "item.modestmining.exposed_copper_chisel": "Exposed Copper Chisel",
-  "item.modestmining.weathered_copper_chisel": "Weathered Copper Chisel",
-  "item.modestmining.oxidized_copper_chisel": "Oxidized Copper Chisel",
+  "item.modestmining.brush": "Brush",
+  "item.modestmining.chisel": "Chisel",
 
   "item.modestmining.flint_blade": "Flint Blade",
   "item.modestmining.flint_hatchet": "Flint Hatchet",
@@ -197,8 +185,10 @@
   "block.modestmining.varied_plank_button": "Varied Plank Button",
   "block.modestmining.varied_plank_pressure_plate": "Varied Plank Pressure Plate",
 
-  "block.modestmining.ancient_dirt": "Dirt",
-  "block.modestmining.ancient_gravel": "Gravel",
+  "block.modestmining.suspicious_dirt": "Suspicious Dirt",
+  "block.modestmining.suspicious_sand": "Suspicious Sand",
+  "block.modestmining.suspicious_gravel": "Suspicious Gravel",
+  "block.modestmining.suspicious_stone": "Suspicious Stone",
 
   "block.modestmining.acacia_boards": "Acacia Panels",
   "block.modestmining.acacia_tiles": "Acacia Tiles",
@@ -244,5 +234,7 @@
   "block.minecraft.amethyst_block": "Amethyst Block",
 
   "effect.modestmining.prismarite_strength": "Prismarite Strength",
-  "effect.modestmining.prismarite_speed": "Prismarite Speed"
+  "effect.modestmining.prismarite_speed": "Prismarite Speed",
+
+  "entity.modestmining.clam": "Clam"
 }

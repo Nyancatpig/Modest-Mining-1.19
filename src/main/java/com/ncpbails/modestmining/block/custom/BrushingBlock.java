@@ -1,14 +1,17 @@
 package com.ncpbails.modestmining.block.custom;
 
+import com.ncpbails.modestmining.block.ModBlocks;
 import com.ncpbails.modestmining.block.entity.ModBlockEntities;
 import com.ncpbails.modestmining.block.entity.custom.BrushingBlockEntity;
 import com.ncpbails.modestmining.item.ModItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -53,9 +56,9 @@ public class BrushingBlock extends BaseEntityBlock {
     static {
         SHAPE_BY_BRUSH = new VoxelShape[]{
                 Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D),
-                Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D),
-                Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D),
-                Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D)};
+                Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+                Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+                Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)};
     }
 
     protected void spawnDestroyParticles(Level p_152422_, Player p_152423_, BlockPos p_152424_, BlockState p_152425_) {
@@ -70,38 +73,23 @@ public class BrushingBlock extends BaseEntityBlock {
         if (!worldIn.isClientSide()) {
             BlockEntity entity = worldIn.getBlockEntity(pos);
             if(entity instanceof BrushingBlockEntity) {
-
-                //Main Hand Copper
-                if (handIn.equals(InteractionHand.MAIN_HAND) && heldStack.is(ModItems.COPPER_BRUSH.get())) {
-                    brushAtBlock(state, worldIn, pos, player, handIn, hit, entity, heldStack, 10);
-                }
-                //Main Hand Exposed
-                else if (handIn.equals(InteractionHand.MAIN_HAND) && heldStack.is(ModItems.EXPOSED_COPPER_BRUSH.get())) {
-                    brushAtBlock(state, worldIn, pos, player, handIn, hit, entity, heldStack, 8);
-                }
-                //Main Hand Weathered
-                else if (handIn.equals(InteractionHand.MAIN_HAND) && heldStack.is(ModItems.WEATHERED_COPPER_BRUSH.get())) {
-                    brushAtBlock(state, worldIn, pos, player, handIn, hit, entity, heldStack, 6);
-                }
-                //Main Hand Oxidized
-                else if (handIn.equals(InteractionHand.MAIN_HAND) && heldStack.is(ModItems.OXIDIZED_COPPER_BRUSH.get())) {
-                    brushAtBlock(state, worldIn, pos, player, handIn, hit, entity, heldStack, 4);
-                }
-                //Off Hand Copper
-                else if (handIn.equals(InteractionHand.OFF_HAND) && offhandStack.is(ModItems.COPPER_BRUSH.get())) {
-                    brushAtBlock(state, worldIn, pos, player, handIn, hit, entity, offhandStack, 10);
-                }
-                //Off Hand Exposed
-                else if (handIn.equals(InteractionHand.OFF_HAND) && offhandStack.is(ModItems.EXPOSED_COPPER_BRUSH.get())) {
-                    brushAtBlock(state, worldIn, pos, player, handIn, hit, entity, offhandStack, 8);
-                }
-                //Off Hand Weathered
-                else if (handIn.equals(InteractionHand.OFF_HAND) && offhandStack.is(ModItems.WEATHERED_COPPER_BRUSH.get())) {
-                    brushAtBlock(state, worldIn, pos, player, handIn, hit, entity, offhandStack, 6);
-                }
-                //Off Hand Oxidized
-                else if (handIn.equals(InteractionHand.OFF_HAND) && offhandStack.is(ModItems.OXIDIZED_COPPER_BRUSH.get())) {
+                if (worldIn.getBlockState(pos).getBlock() != ModBlocks.SUSPICIOUS_STONE.get()) {
+                    //Main Hand Copper
+                    if (handIn.equals(InteractionHand.MAIN_HAND) && heldStack.is(ModItems.BRUSH.get())) {
+                        brushAtBlock(state, worldIn, pos, player, handIn, hit, entity, heldStack, 4);
+                    }//Off Hand Copper
+                    else if (handIn.equals(InteractionHand.OFF_HAND) && offhandStack.is(ModItems.BRUSH.get())) {
                     brushAtBlock(state, worldIn, pos, player, handIn, hit, entity, offhandStack, 4);
+                    }
+                }
+                else {
+                    //Main Hand Copper
+                    if (handIn.equals(InteractionHand.MAIN_HAND) && heldStack.is(ModItems.CHISEL.get())) {
+                        brushAtBlock(state, worldIn, pos, player, handIn, hit, entity, heldStack, 4);
+                    }//Off Hand Copper
+                    else if (handIn.equals(InteractionHand.OFF_HAND) && offhandStack.is(ModItems.CHISEL.get())) {
+                        brushAtBlock(state, worldIn, pos, player, handIn, hit, entity, offhandStack, 4);
+                    }
                 }
 
             } else {
@@ -125,7 +113,12 @@ public class BrushingBlock extends BaseEntityBlock {
         else if(((BrushingBlockEntity) entity).playerProgress > ((BrushingBlockEntity) entity).maxProgress/4) {
             worldIn.setBlock(pos, state.setValue(BRUSHING, 1), 2);
         }
-        worldIn.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.GRASS_BREAK, SoundSource.BLOCKS, 0.25F, 0.5F);
+        if (worldIn.getBlockState(pos).getBlock() != ModBlocks.SUSPICIOUS_STONE.get()) {
+            worldIn.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.GRASS_BREAK, SoundSource.BLOCKS, 0.25F, 0.5F);
+        }
+        else {
+            worldIn.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.STONE_BREAK, SoundSource.BLOCKS, 0.25F, 0.5F);
+        }
         spawnDestroyParticles(worldIn, player, pos, state);
         //Damage Brush
         if (!player.isCreative()) {

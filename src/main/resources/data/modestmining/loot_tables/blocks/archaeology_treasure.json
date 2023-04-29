@@ -69,22 +69,6 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_damage",
-              "damage": {
-                "type": "minecraft:uniform",
-                "min": 0.0,
-                "max": 0.25
-              },
-              "add": false
-            }
-          ],
-          "weight": 4,
-          "name": "modestmining:exposed_copper_brush"
-        },
-        {
-          "type": "minecraft:item",
           "weight": 4,
           "name": "minecraft:nautilus_shell"
         },
@@ -354,7 +338,7 @@
             }
           ],
           "weight": 8,
-          "name": "modestmining:copper_brush"
+          "name": "modestmining:brush"
         },
         {
           "type": "minecraft:item",
