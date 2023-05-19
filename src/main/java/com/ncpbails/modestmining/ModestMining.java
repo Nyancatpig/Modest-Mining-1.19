@@ -14,20 +14,34 @@ import com.ncpbails.modestmining.world.feature.ModConfiguredFeatures;
 import com.ncpbails.modestmining.world.feature.ModPlacedFeatures;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.metadata.pack.PackMetadataSection;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.data.loading.DatagenModLoader;
+import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.forgespi.locating.IModFile;
+import net.minecraftforge.resource.PathPackResources;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
+
+import java.io.IOException;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ModestMining.MOD_ID)
@@ -40,6 +54,7 @@ public class ModestMining
     {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         eventBus.addListener(this::commonSetup);
+        eventBus.addListener(this::addPackFinders);
 
         ModEffects.register(eventBus);
         ModItems.register(eventBus);
@@ -67,6 +82,37 @@ public class ModestMining
     public void onServerStarting(ServerStartingEvent event)
     {
 
+    }
+
+    public void addPackFinders(AddPackFindersEvent event) {
+        if (event.getPackType() == PackType.CLIENT_RESOURCES) {
+            registerBuiltinResourcePack(event, true, Component.literal("Modest Mining Materials"), "modestmining_materials");
+        }
+    }
+
+    private static void registerBuiltinResourcePack(AddPackFindersEvent event, boolean autoEnable, MutableComponent name, String folder) {
+        event.addRepositorySource((consumer, constructor) -> {
+            ResourceLocation res = new ResourceLocation(ModestMining.MOD_ID, folder);
+            IModFile file = ModList.get().getModFileById(ModestMining.MOD_ID).getFile();
+            try (PathPackResources pack = new PathPackResources(
+                    res.toString(),
+                    file.findResource("resourcepacks/" + folder))) {
+
+                consumer.accept(constructor.create(
+                        res.toString(),
+                        name,
+                        autoEnable, // Whether the resource pack is enabled by default
+                        () -> pack,
+                        pack.getMetadataSection(PackMetadataSection.SERIALIZER),
+                        Pack.Position.TOP,
+                        PackSource.BUILT_IN,
+                        false));
+
+            } catch (IOException e) {
+                if (!DatagenModLoader.isRunningDataGen())
+                    e.printStackTrace();
+            }
+        });
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
