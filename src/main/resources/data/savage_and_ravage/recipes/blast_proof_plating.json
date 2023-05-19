@@ -29,5 +29,11 @@
   "output": {
     "item": "savage_and_ravage:blast_proof_plating",
     "count": 2
-  }
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "savage_and_ravage"
+    }
+  ]
 }
