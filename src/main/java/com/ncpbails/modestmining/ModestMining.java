@@ -86,11 +86,11 @@ public class ModestMining
 
     public void addPackFinders(AddPackFindersEvent event) {
         if (event.getPackType() == PackType.CLIENT_RESOURCES) {
-            registerBuiltinResourcePack(event, true, Component.literal("Modest Mining Materials"), "modestmining_materials");
+            registerBuiltinResourcePack(event, Component.literal("Modest Mining Materials"), "modestmining_materials");
         }
     }
 
-    private static void registerBuiltinResourcePack(AddPackFindersEvent event, boolean autoEnable, MutableComponent name, String folder) {
+    private static void registerBuiltinResourcePack(AddPackFindersEvent event, MutableComponent name, String folder) {
         event.addRepositorySource((consumer, constructor) -> {
             ResourceLocation res = new ResourceLocation(ModestMining.MOD_ID, folder);
             IModFile file = ModList.get().getModFileById(ModestMining.MOD_ID).getFile();
@@ -101,10 +101,10 @@ public class ModestMining
                 consumer.accept(constructor.create(
                         res.toString(),
                         name,
-                        autoEnable, // Whether the resource pack is enabled by default
+                        false,
                         () -> pack,
                         pack.getMetadataSection(PackMetadataSection.SERIALIZER),
-                        Pack.Position.TOP,
+                        Pack.Position.BOTTOM,
                         PackSource.BUILT_IN,
                         false));
 
