@@ -230,6 +230,11 @@
   "block.modestmining.carved_warped_planks": "Carved Warped Planks",
   "block.modestmining.chiseled_warped_planks": "Chiseled Warped Planks",
   "block.modestmining.warped_pillar": "Warped Pillar",
+  "block.modestmining.mangrove_boards": "Mangrove Panels",
+  "block.modestmining.mangrove_tiles": "Mangrove Tiles",
+  "block.modestmining.carved_mangrove_planks": "Carved Mangrove Planks",
+  "block.modestmining.chiseled_mangrove_planks": "Chiseled Mangrove Planks",
+  "block.modestmining.mangrove_pillar": "Mangrove Pillar",
 
   "block.minecraft.amethyst_block": "Amethyst Block",
 

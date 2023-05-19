@@ -23,7 +23,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: "org.spongepowered.mixin"
 
-version = '0.2.3'
+version = '0.2.7'
 group = 'com.ncpbails.modestmining' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'modestmining'
 
@@ -180,8 +180,11 @@ dependencies {
     compileOnly(fg.deobf("mezz.jei:jei-1.19.2-forge-api:11.5.0.297"))
     // at runtime, use the full JEI jar for Forge
     runtimeOnly(fg.deobf("mezz.jei:jei-1.19.2-forge:11.5.0.297"))
-
+    runtimeOnly fg.deobf("curse.maven:blueprint-382216:4442628")
+    runtimeOnly fg.deobf("curse.maven:upgradeaquatic-326895:4415517")
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.19')
+    implementation fg.deobf("curse.maven:moonlightlib-499980:4460381")
+    implementation fg.deobf("curse.maven:everycompat-628539:4510943")
 
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
@@ -197,7 +200,7 @@ jar {
         attributes([
                 "Specification-Title"     : "modestmining",
                 "Specification-Vendor"    : "ncpbails",
-                "Specification-Version"   : "0.2.3", // We are version 1 of ourselves
+                "Specification-Version"   : "0.2.7", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "ncpbails",

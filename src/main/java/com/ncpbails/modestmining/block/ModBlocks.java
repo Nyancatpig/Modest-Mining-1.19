@@ -216,13 +216,20 @@ public class ModBlocks {
             }, CreativeModeTab.TAB_BUILDING_BLOCKS, true, 300);
 
     public static final RegistryObject<Block> WARPED_PILLAR = registerBlock("warped_pillar",
-            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)) {
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_STEM)) {
                 @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
                 @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
                 @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
-            }, CreativeModeTab.TAB_BUILDING_BLOCKS, true, 300);
+            }, CreativeModeTab.TAB_BUILDING_BLOCKS, false, 300);
 
     public static final RegistryObject<Block> CRIMSON_PILLAR = registerBlock("crimson_pillar",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_STEM)) {
+                @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
+                @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
+                @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
+            }, CreativeModeTab.TAB_BUILDING_BLOCKS, false, 300);
+
+    public static final RegistryObject<Block> MANGROVE_PILLAR = registerBlock("mangrove_pillar",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)) {
                 @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
                 @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
@@ -272,13 +279,20 @@ public class ModBlocks {
             }, CreativeModeTab.TAB_BUILDING_BLOCKS, true, 300);
 
     public static final RegistryObject<Block> WARPED_BOARDS = registerBlock("warped_boards",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)) {
                 @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
                 @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
                 @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
-            }, CreativeModeTab.TAB_BUILDING_BLOCKS, true, 300);
+            }, CreativeModeTab.TAB_BUILDING_BLOCKS, false, 300);
 
     public static final RegistryObject<Block> CRIMSON_BOARDS = registerBlock("crimson_boards",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)) {
+                @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
+                @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
+                @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
+            }, CreativeModeTab.TAB_BUILDING_BLOCKS, false, 300);
+
+    public static final RegistryObject<Block> MANGROVE_BOARDS = registerBlock("mangrove_boards",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
                 @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
                 @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
@@ -328,13 +342,20 @@ public class ModBlocks {
             }, CreativeModeTab.TAB_BUILDING_BLOCKS, true, 300);
 
     public static final RegistryObject<Block> WARPED_TILES = registerBlock("warped_tiles",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)) {
                 @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
                 @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
                 @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
-            }, CreativeModeTab.TAB_BUILDING_BLOCKS, true, 300);
+            }, CreativeModeTab.TAB_BUILDING_BLOCKS, false, 300);
 
     public static final RegistryObject<Block> CRIMSON_TILES = registerBlock("crimson_tiles",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)) {
+                @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
+                @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
+                @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
+            }, CreativeModeTab.TAB_BUILDING_BLOCKS, false, 300);
+
+    public static final RegistryObject<Block> MANGROVE_TILES = registerBlock("mangrove_tiles",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
                 @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
                 @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
@@ -384,13 +405,20 @@ public class ModBlocks {
             }, CreativeModeTab.TAB_BUILDING_BLOCKS, true, 300);
 
     public static final RegistryObject<Block> CARVED_WARPED_PLANKS = registerBlock("carved_warped_planks",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)) {
                 @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
                 @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
                 @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
-            }, CreativeModeTab.TAB_BUILDING_BLOCKS, true, 300);
+            }, CreativeModeTab.TAB_BUILDING_BLOCKS, false, 300);
 
     public static final RegistryObject<Block> CARVED_CRIMSON_PLANKS = registerBlock("carved_crimson_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)) {
+                @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
+                @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
+                @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
+            }, CreativeModeTab.TAB_BUILDING_BLOCKS, false, 300);
+
+    public static final RegistryObject<Block> CARVED_MANGROVE_PLANKS = registerBlock("carved_mangrove_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
                 @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
                 @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
@@ -440,13 +468,20 @@ public class ModBlocks {
             }, CreativeModeTab.TAB_BUILDING_BLOCKS, true, 300);
 
     public static final RegistryObject<Block> CHISELED_WARPED_PLANKS = registerBlock("chiseled_warped_planks",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)) {
                 @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
                 @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
                 @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
-            }, CreativeModeTab.TAB_BUILDING_BLOCKS, true, 300);
+            }, CreativeModeTab.TAB_BUILDING_BLOCKS, false, 300);
 
     public static final RegistryObject<Block> CHISELED_CRIMSON_PLANKS = registerBlock("chiseled_crimson_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.CRIMSON_PLANKS)) {
+                @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
+                @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
+                @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
+            }, CreativeModeTab.TAB_BUILDING_BLOCKS, false, 300);
+
+    public static final RegistryObject<Block> CHISELED_MANGROVE_PLANKS = registerBlock("chiseled_mangrove_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
                 @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
                 @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
