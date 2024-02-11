@@ -10,6 +10,7 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 
@@ -25,7 +26,7 @@ public class ForgeMenu extends AbstractContainerMenu {
 
     public ForgeMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.FORGE_MENU.get(), pContainerId);
-        checkContainerSize(inv, 10);
+        checkContainerSize(inv, 11);
         blockEntity = ((ForgeBlockEntity) entity);
         this.level = inv.player.level;
         this.data = data;
@@ -34,16 +35,17 @@ public class ForgeMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 21, 20));
-            this.addSlot(new SlotItemHandler(handler, 1, 39, 20));
-            this.addSlot(new SlotItemHandler(handler, 2, 57, 20));
-            this.addSlot(new SlotItemHandler(handler, 3, 75, 20));
-            this.addSlot(new SlotItemHandler(handler, 4, 21, 38));
-            this.addSlot(new SlotItemHandler(handler, 5, 39, 38));
-            this.addSlot(new SlotItemHandler(handler, 6, 57, 38));
-            this.addSlot(new SlotItemHandler(handler, 7, 75, 38));
-            this.addSlot(new ModResultSlot(handler, 8, 135, 30));
-            this.addSlot(new SlotItemHandler(handler, 9, 75, 62));
+            this.addSlot(new SlotItemHandler(handler, 0, 30, 17));
+            this.addSlot(new SlotItemHandler(handler, 1, 48, 17));
+            this.addSlot(new SlotItemHandler(handler, 2, 66, 17));
+            this.addSlot(new SlotItemHandler(handler, 3, 30, 35));
+            this.addSlot(new SlotItemHandler(handler, 4, 48, 35));
+            this.addSlot(new SlotItemHandler(handler, 5, 66, 35));
+            this.addSlot(new SlotItemHandler(handler, 6, 30, 53));
+            this.addSlot(new SlotItemHandler(handler, 7, 48, 53));
+            this.addSlot(new SlotItemHandler(handler, 8, 66, 53));
+            this.addSlot(new SlotItemHandler(handler, 9, 93, 53));
+            this.addSlot(new ModResultSlot(handler, 10, 124, 19));
         });
 
         addDataSlots(data);
@@ -54,7 +56,7 @@ public class ForgeMenu extends AbstractContainerMenu {
     }
 
     public boolean isFueled() {
-        return data.get(0) > 0;
+        return blockEntity.getBlockState().getValue(BlockStateProperties.LIT);
     }
 
     public int getScaledProgress() {
@@ -81,7 +83,7 @@ public class ForgeMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 10;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 11;  // must be the number of slots you have!
 
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {

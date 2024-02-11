@@ -2,6 +2,7 @@ package com.ncpbails.modestmining.integration;
 
 import com.ncpbails.modestmining.ModestMining;
 import com.ncpbails.modestmining.recipe.ForgeRecipe;
+import com.ncpbails.modestmining.recipe.ForgeShapedRecipe;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.RecipeType;
@@ -19,6 +20,9 @@ public class JEIModestMiningPlugin implements IModPlugin {
     public static RecipeType<ForgeRecipe> FORGING_TYPE =
             new RecipeType<>(ForgingRecipeCategory.UID, ForgeRecipe.class);
 
+    public static RecipeType<ForgeShapedRecipe> FORGING_SHAPED_TYPE =
+            new RecipeType<>(ForgingShapedRecipeCategory.UID, ForgeShapedRecipe.class);
+
     @Override
     public ResourceLocation getPluginUid() {
         return new ResourceLocation(ModestMining.MOD_ID, "jei_plugin");
@@ -26,15 +30,20 @@ public class JEIModestMiningPlugin implements IModPlugin {
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
-        registration.addRecipeCategories(new
-                ForgingRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(
+                new ForgingRecipeCategory(registration.getJeiHelpers().getGuiHelper()),
+                new ForgingShapedRecipeCategory(registration.getJeiHelpers().getGuiHelper())
+        );
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager rm = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
 
-        List<ForgeRecipe> recipesInfusing = rm.getAllRecipesFor(ForgeRecipe.Type.INSTANCE);
-        registration.addRecipes(FORGING_TYPE, recipesInfusing);
+        List<ForgeRecipe> recipes = rm.getAllRecipesFor(ForgeRecipe.Type.INSTANCE);
+        registration.addRecipes(FORGING_TYPE, recipes);
+
+        List<ForgeShapedRecipe> recipesShaped = rm.getAllRecipesFor(ForgeShapedRecipe.Type.INSTANCE);
+        registration.addRecipes(FORGING_SHAPED_TYPE, recipesShaped);
     }
 }

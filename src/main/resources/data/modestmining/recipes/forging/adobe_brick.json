@@ -1,5 +1,6 @@
 {
   "type": "modestmining:forging",
+  "cooktime": 144,
   "ingredients": [
     {
       "item": "minecraft:clay_ball"
@@ -26,7 +27,10 @@
       "item": "modestmining:fiber"
     }
   ],
-  "output": {
+  "fuel": {
+    "item": "minecraft:coal"
+  },
+  "result": {
     "item": "modestmining:adobe_brick",
     "count": 8
   }

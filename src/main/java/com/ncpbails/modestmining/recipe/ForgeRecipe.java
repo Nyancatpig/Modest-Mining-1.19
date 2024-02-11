@@ -2,7 +2,9 @@ package com.ncpbails.modestmining.recipe;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.ncpbails.modestmining.ModestMining;
+import it.unimi.dsi.fastutil.ints.IntList;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -22,50 +24,17 @@ public class ForgeRecipe implements Recipe<SimpleContainer> {
     private final ResourceLocation id;
     private final ItemStack output;
     private final NonNullList<Ingredient> recipeItems;
+    private final Ingredient fuel;
+    private final int cookTime;
     private final boolean isSimple;
 
-    public ForgeRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems) {
+    public ForgeRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems, Ingredient fuel, int cookTime) {
         this.id = id;
         this.output = output;
         this.recipeItems = recipeItems;
+        this.fuel = fuel;
+        this.cookTime = cookTime;
         this.isSimple = recipeItems.stream().allMatch(Ingredient::isSimple);
-    }
-
-    @Override
-    public boolean matches(SimpleContainer pContainer, Level pLevel) {
-        StackedContents stackedcontents = new StackedContents();
-        List<ItemStack> inputs = new java.util.ArrayList<>();
-        int i = 0;
-
-        for(int j = 0; j < 8; ++j) {
-            ItemStack itemstack = pContainer.getItem(j);
-            if (!itemstack.isEmpty()) {
-                ++i;
-                stackedcontents.accountStack(itemstack, 1);
-            }
-        }
-            return i == this.recipeItems.size() && (isSimple ? stackedcontents.canCraft(this, null) :
-                    RecipeMatcher.findMatches(inputs, this.recipeItems) != null);
-    }
-
-    @Override
-    public NonNullList<Ingredient> getIngredients() {
-        return recipeItems;
-    }
-
-    @Override
-    public ItemStack assemble(SimpleContainer p_44001_) {
-        return output;
-    }
-
-    @Override
-    public boolean canCraftInDimensions(int p_43999_, int p_44000_) {
-        return true;
-    }
-
-    @Override
-    public ItemStack getResultItem() {
-        return output.copy();
     }
 
     @Override
@@ -79,6 +48,71 @@ public class ForgeRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
+    public ItemStack getResultItem() {
+        return output.copy();
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return recipeItems;
+    }
+
+    public Ingredient getFuel() {
+        return fuel;
+    }
+
+    public int getCookTime() {
+        return this.cookTime;
+    }
+
+    @Override
+    public boolean matches(SimpleContainer pContainer, Level pLevel) {
+        // Check if output slot is already occupied with a different item
+        ItemStack outputSlot = pContainer.getItem(10);
+        if (!outputSlot.isEmpty() && !ItemStack.isSame(this.getResultItem(), outputSlot)) {
+            return false;
+        }
+
+        // Check if output slot is full
+        if (!outputSlot.isEmpty() && outputSlot.getCount() >= outputSlot.getMaxStackSize()) {
+            return false;
+        }
+        StackedContents stackedcontents = new StackedContents();
+        List<ItemStack> inputs = new java.util.ArrayList<>();
+        int i = 0;
+
+        for(int j = 0; j < 9; ++j) {
+            ItemStack itemstack = pContainer.getItem(j);
+            if (!itemstack.isEmpty()) {
+                ++i;
+                if (isSimple)
+                    stackedcontents.accountStack(itemstack, 1);
+                else inputs.add(itemstack);
+            }
+            //stackedcontents.accountStack(itemstack, 1);
+        }
+        //return i >= this.recipeItems.size() && (isSimple ? stackedcontents.canCraft(this, null) :
+        //RecipeMatcher.findMatches(inputs, this.recipeItems) != null);
+
+        //return i >= this.recipeItems.size() && RecipeMatcher.findMatches(inputs, this.recipeItems) != null;
+        return i == this.recipeItems.size() && hasRequiredFuel(pContainer, pLevel)
+                && (isSimple ? stackedcontents.canCraft(this, (IntList)null) : RecipeMatcher.findMatches(inputs,  this.recipeItems) != null);
+    }
+    private boolean hasRequiredFuel(SimpleContainer pContainer, Level pLevel) {
+        ItemStack fuelStack = pContainer.getItem(9);
+        return fuel.test(fuelStack);
+    }
+    @Override
+    public ItemStack assemble(SimpleContainer p_44001_) {
+        return output;
+    }
+
+    @Override
+    public boolean canCraftInDimensions(int p_43999_, int p_44000_) {
+        return true;
+    }
+
+    @Override
     public RecipeType<?> getType() {
         return Type.INSTANCE;
     }
@@ -89,65 +123,61 @@ public class ForgeRecipe implements Recipe<SimpleContainer> {
         public static final String ID = "forging";
     }
 
+
     public static class Serializer implements RecipeSerializer<ForgeRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID =
-                new ResourceLocation(ModestMining.MOD_ID,"forging");
-
-        @Override
-        public ForgeRecipe fromJson(ResourceLocation id, JsonObject json) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
-
-            JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(8, Ingredient.EMPTY);
-
-            for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+        private static final ResourceLocation NAME = new ResourceLocation("modestmining", "forging");
+        public ForgeRecipe fromJson(ResourceLocation resourceLocation, JsonObject json) {
+            NonNullList<Ingredient> inputs = itemsFromJson(GsonHelper.getAsJsonArray(json, "ingredients"));
+            if (inputs.isEmpty()) {
+                throw new JsonParseException("No ingredients for forging recipe");
+            } else if (inputs.size() > 9) {
+                throw new JsonParseException("Too many ingredients for forging recipe. The maximum is 9");
+            } else {
+                ItemStack itemstack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
+                int cookTimeIn = GsonHelper.getAsInt(json, "cooktime", 200);
+                Ingredient fuel = Ingredient.fromJson(json.get("fuel"));
+                return new ForgeRecipe(resourceLocation, itemstack, inputs, fuel, cookTimeIn);
             }
-
-            return new ForgeRecipe(id, output, inputs);
         }
 
+
+        private static NonNullList<Ingredient> itemsFromJson(JsonArray ingredientArray) {
+            NonNullList<Ingredient> nonnulllist = NonNullList.create();
+
+            for(int i = 0; i < ingredientArray.size(); ++i) {
+                Ingredient ingredient = Ingredient.fromJson(ingredientArray.get(i));
+                if (true || !ingredient.isEmpty()) {
+                    nonnulllist.add(ingredient);
+                }
+            }
+            return nonnulllist;
+        }
         @Override
         public ForgeRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
-            NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
+            String s = buf.readUtf();
+            int i = buf.readVarInt();
+            NonNullList<Ingredient> inputs = NonNullList.withSize(i, Ingredient.EMPTY);
 
-            for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromNetwork(buf));
+            for(int j = 0; j < inputs.size(); ++j) {
+                inputs.set(j, Ingredient.fromNetwork(buf));
             }
 
-            ItemStack output = buf.readItem();
-            return new ForgeRecipe(id, output, inputs);
+            ItemStack itemstack = buf.readItem();
+            int cookTimeIn = buf.readVarInt();
+            Ingredient fuel = Ingredient.EMPTY;
+            return new ForgeRecipe(id, itemstack, inputs, fuel, cookTimeIn);
         }
 
         @Override
         public void toNetwork(FriendlyByteBuf buf, ForgeRecipe recipe) {
-            buf.writeInt(recipe.getIngredients().size());
-            for (Ingredient ing : recipe.getIngredients()) {
-                ing.toNetwork(buf);
+            buf.writeVarInt(recipe.recipeItems.size());
+
+            for(Ingredient ingredient : recipe.getIngredients()) {
+                ingredient.toNetwork(buf);
             }
-            buf.writeItemStack(recipe.getResultItem(), false);
+
+            buf.writeItem(recipe.getResultItem());
         }
-
-        //@Override
-        //public RecipeSerializer<?> setRegistryName(ResourceLocation name) {
-        //    return INSTANCE;
-        //}
-
-        //@Nullable
-        //@Override
-        //public ResourceLocation getRegistryName() {
-        //    return ID;
-        //}
-
-        //@Override
-        //public Class<RecipeSerializer<?>> getRegistryType() {
-        //    return Serializer.castClass(RecipeSerializer.class);
-        //}
-
-        //@SuppressWarnings("unchecked") // Need this wrapper, because generics
-        //private static <G> Class<G> castClass(Class<?> cls) {
-        //    return (Class<G>)cls;
-        //}
     }
 }

@@ -28,10 +28,10 @@ public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
         this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
 
         if(menu.isCrafting()) {
-            blit(pPoseStack, x + 99, y + 30, 176, 14,  menu.getScaledProgress(), 17);
+            blit(pPoseStack, x + 89, y + 17, 176, 14,  menu.getScaledProgress(), 17);
         }
         if(menu.isFueled()) {
-            blit(pPoseStack, x + 104, y + 64, 176, 0, 14, 15);
+            blit(pPoseStack, x + 94, y + 36, 176, 0, 14, 15);
         }
     }
 
@@ -41,6 +41,4 @@ public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
         super.render(pPoseStack, mouseX, mouseY, delta);
         renderTooltip(pPoseStack, mouseX, mouseY);
     }
-
-
 }

@@ -16,6 +16,9 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<ForgeRecipe>> FORGING_SERIALIZER =
             SERIALIZERS.register("forging", () -> ForgeRecipe.Serializer.INSTANCE);
 
+    public static final RegistryObject<RecipeSerializer<ForgeShapedRecipe>> FORGING_SHAPED_SERIALIZER =
+            SERIALIZERS.register("forging_shaped", () -> ForgeShapedRecipe.Serializer.INSTANCE);
+
 
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);

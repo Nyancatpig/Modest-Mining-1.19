@@ -1,0 +1,23 @@
+{
+  "type": "modestmining:forging_shaped",
+  "cooktime": 72,
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "X": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "pattern": [
+    "###",
+    "   ",
+    "XXX"
+  ],
+  "fuel": {
+    "item": "minecraft:coal"
+  },
+  "result": {
+    "item": "minecraft:iron_ingot"
+  }
+}
