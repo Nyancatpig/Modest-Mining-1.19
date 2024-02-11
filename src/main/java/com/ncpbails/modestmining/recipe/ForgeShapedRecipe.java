@@ -93,14 +93,35 @@ public class ForgeShapedRecipe implements Recipe<SimpleContainer> {
         }
 
         for(int i = 0; i <= pContainer.getContainerSize() - this.width; ++i) {
-            for(int j = 0; j <= pContainer.getContainerSize() - this.height; ++j) {
+        boolean forwardMatch = false;
+        boolean backwardMatch = false;
+
+        for (int i = 0; i <= pContainer.getContainerSize() - this.width; ++i) {
+            for (int j = 0; j <= pContainer.getContainerSize() - this.height; ++j) {
                 if (this.matches(pContainer, i, j) && hasRequiredFuel(pContainer, pLevel)) {
-                    return true;
+                    forwardMatch = true;
+                }
+                if (this.matchesReversed(pContainer, i, j) && hasRequiredFuel(pContainer, pLevel)) {
+                    backwardMatch = true;
                 }
             }
         }
 
-        return false;
+        // Check if only one direction matches
+        return forwardMatch != backwardMatch;
+    }
+
+    private boolean matchesReversed(SimpleContainer pContainer, int startX, int startY) {
+        // Check if the reversed pattern matches the container contents
+        for (int x = this.width - 1; x >= 0; x--) {
+            for (int y = 0; y < this.height; y++) {
+                Ingredient ingredient = this.recipeItems.get(x + y * this.width);
+                if (!ingredient.test(pContainer.getItem(startX + (this.width - x - 1) + (startY + y) * 3))) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 
