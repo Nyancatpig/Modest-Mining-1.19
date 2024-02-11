@@ -4,10 +4,34 @@
   "ingredients": [
     {
       "item": "modestmining:copper_nugget"
+    },
+    {
+      "item": "modestmining:copper_nugget"
+    },
+    {
+      "item": "modestmining:copper_nugget"
+    },
+    {
+      "item": "modestmining:copper_nugget"
+    },
+    {
+      "item": "modestmining:copper_nugget"
+    },
+    {
+      "item": "modestmining:copper_nugget"
+    },
+    {
+      "item": "modestmining:copper_nugget"
+    },
+    {
+      "item": "modestmining:copper_nugget"
+    },
+    {
+      "item": "modestmining:copper_nugget"
     }
   ],
   "result": {
     "item": "minecraft:copper_ingot",
-    "count": 9
+    "count": 1
   }
 }

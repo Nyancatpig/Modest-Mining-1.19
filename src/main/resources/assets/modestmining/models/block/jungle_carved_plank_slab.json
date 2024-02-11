@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "modestmining:block/carved_jungle_planks",
+    "side": "modestmining:block/carved_jungle_planks",
+    "top": "modestmining:block/carved_jungle_planks"
+  }
+}

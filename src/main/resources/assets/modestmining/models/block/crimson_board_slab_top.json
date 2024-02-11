@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "modestmining:block/crimson_boards",
+    "side": "modestmining:block/crimson_boards",
+    "top": "modestmining:block/crimson_boards"
+  }
+}

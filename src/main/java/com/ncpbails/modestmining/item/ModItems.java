@@ -349,36 +349,6 @@ public class ModItems {
             new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
 
-    public static final RegistryObject<Item> FLINT_MOUNTAIN_HATCHET = ITEMS.register("flint_mountain_hatchet", () -> new PickaxeItem(ModTiers.MOUNTAIN_FLINT, 1, -2.8f,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
-
-    public static final RegistryObject<Item> WOODEN_MOUNTAIN_AXE = ITEMS.register("wooden_mountain_axe", () -> new PickaxeItem(ModTiers.MOUNTAIN_WOOD, 1, -2.8f,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
-
-    public static final RegistryObject<Item> STONE_MOUNTAIN_AXE = ITEMS.register("stone_mountain_axe", () -> new PickaxeItem(ModTiers.MOUNTAIN_STONE, 1, 2.8f,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
-
-    public static final RegistryObject<Item> IRON_MOUNTAIN_AXE = ITEMS.register("iron_mountain_axe", () -> new PickaxeItem(ModTiers.MOUNTAIN_IRON, 1, -2.8f,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
-
-    public static final RegistryObject<Item> STEEL_MOUNTAIN_AXE = ITEMS.register("steel_mountain_axe", () -> new PickaxeItem(ModTiers.MOUNTAIN_STEEL, 1, -2.8f,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
-
-    public static final RegistryObject<Item> GOLDEN_MOUNTAIN_AXE = ITEMS.register("golden_mountain_axe", () -> new PickaxeItem(ModTiers.MOUNTAIN_GOLD, 1, -2.8f,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
-
-    public static final RegistryObject<Item> ROSEGOLD_MOUNTAIN_AXE = ITEMS.register("rosegold_mountain_axe", () -> new PickaxeItem(ModTiers.MOUNTAIN_ROSEGOLD, 1, -2.8f,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
-
-    public static final RegistryObject<Item> DIAMOND_MOUNTAIN_AXE = ITEMS.register("diamond_mountain_axe", () -> new PickaxeItem(ModTiers.MOUNTAIN_DIAMOND, 1, -2.8f,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
-
-    public static final RegistryObject<Item> NETHERITE_MOUNTAIN_AXE = ITEMS.register("netherite_mountain_axe", () -> new PickaxeItem(ModTiers.MOUNTAIN_NETHERITE, 1, -2.8f,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
-
-    public static final RegistryObject<Item> PRISMARITE_MOUNTAIN_AXE = ITEMS.register("prismarite_mountain_axe", () -> new PickaxeItem(ModTiers.MOUNTAIN_PRISMARITE, 1, -2.8f,
-            new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
-
 
     public static final RegistryObject<Item> FLINT_BLUDGEON = ITEMS.register("flint_bludgeon", () -> new MaceItem(ModTiers.FLINT, 0, -3.5f, 2.0f, 2.0f,
             new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
