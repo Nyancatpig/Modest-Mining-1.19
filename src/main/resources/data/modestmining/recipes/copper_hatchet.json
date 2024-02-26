@@ -1,10 +1,6 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##",
-    "#X",
-    " X"
-  ],
+  "type": "modestmining:forging_shaped",
+  "cooktime": 144,
   "key": {
     "X": {
       "item": "minecraft:stick"
@@ -12,6 +8,14 @@
     "#": {
       "item": "minecraft:copper_ingot"
     }
+  },
+  "pattern": [
+    "##",
+    "#X",
+    " X"
+  ],
+  "fuel": {
+    "item": "modestmining:coke"
   },
   "result": {
     "item": "modestmining:copper_hatchet"

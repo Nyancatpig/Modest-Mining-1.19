@@ -1,13 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X X",
-    "X X"
-  ],
+  "type": "modestmining:forging_shaped",
+  "cooktime": 144,
   "key": {
-    "X": {
+    "#": {
       "tag": "modestmining:gold_platings"
     }
+  },
+  "pattern": [
+    "# #",
+    "# #"
+  ],
+  "fuel": {
+    "item": "modestmining:coke"
   },
   "result": {
     "item": "minecraft:golden_boots"

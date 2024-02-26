@@ -1,17 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X",
-    "#",
-    "#"
-  ],
+  "type": "modestmining:forging_shaped",
+  "cooktime": 144,
   "key": {
-    "#": {
+    "X": {
       "item": "minecraft:stick"
     },
-    "X": {
+    "#": {
       "item": "minecraft:gold_block"
     }
+  },
+  "pattern": [
+    "#",
+    "X",
+    "X"
+  ],
+  "fuel": {
+    "item": "modestmining:coke"
   },
   "result": {
     "item": "modestmining:golden_hammer"

@@ -1,0 +1,23 @@
+{
+  "type": "modestmining:forging_shaped",
+  "cooktime": 144,
+  "key": {
+    "X": {
+      "item": "minecraft:redstone"
+    },
+    "#": {
+      "tag": "modestmining:iron_pieces"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#X#",
+    " # "
+  ],
+  "fuel": {
+    "item": "modestmining:coke"
+  },
+  "result": {
+    "item": "minecraft:compass"
+  }
+}

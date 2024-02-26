@@ -2,31 +2,16 @@
   "type": "minecraft:smelting",
   "ingredient": [
     {
-      "item": "modestmining:copper_brush"
+      "item": "modestmining:brush"
     },
     {
-      "item": "modestmining:exposed_copper_brush"
-    },
-    {
-      "item": "modestmining:weathered_copper_brush"
-    },
-    {
-      "item": "modestmining:oxidized_copper_brush"
-    },
-    {
-      "item": "modestmining:copper_chisel"
-    },
-    {
-      "item": "modestmining:exposed_copper_chisel"
-    },
-    {
-      "item": "modestmining:weathered_copper_chisel"
-    },
-    {
-      "item": "modestmining:oxidized_copper_chisel"
+      "item": "modestmining:chisel"
     },
     {
       "item": "minecraft:spyglass"
+    },
+    {
+      "item": "modestmining:copper_hatchet"
     }
   ],
   "result": "modestmining:copper_nugget",

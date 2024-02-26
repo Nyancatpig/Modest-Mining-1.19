@@ -13,6 +13,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -81,61 +82,79 @@ public class ForgeShapedRecipe implements Recipe<SimpleContainer> {
     }
 
     public boolean matches(SimpleContainer pContainer, Level pLevel) {
-        // Check if output slot is already occupied with a different item
         ItemStack outputSlot = pContainer.getItem(10);
         if (!outputSlot.isEmpty() && !ItemStack.isSame(this.getResultItem(), outputSlot)) {
             return false;
         }
 
-        // Check if output slot is full
         if (!outputSlot.isEmpty() && outputSlot.getCount() >= outputSlot.getMaxStackSize()) {
             return false;
         }
 
-        for(int i = 0; i <= pContainer.getContainerSize() - this.width; ++i) {
-        boolean forwardMatch = false;
-        boolean backwardMatch = false;
+        boolean[][] slotUsed = new boolean[3][3]; // Track which slots are used
 
-        for (int i = 0; i <= pContainer.getContainerSize() - this.width; ++i) {
-            for (int j = 0; j <= pContainer.getContainerSize() - this.height; ++j) {
-                if (this.matches(pContainer, i, j) && hasRequiredFuel(pContainer, pLevel)) {
-                    forwardMatch = true;
-                }
-                if (this.matchesReversed(pContainer, i, j) && hasRequiredFuel(pContainer, pLevel)) {
-                    backwardMatch = true;
+        // Iterate over the crafting grid
+        for (int offsetX = 0; offsetX <= 3 - this.getWidth(); ++offsetX) {
+            for (int offsetY = 0; offsetY <= 3 - this.getHeight(); ++offsetY) {
+                if (checkIngredients(pContainer, offsetX, offsetY, slotUsed) && hasRequiredFuel(pContainer, pLevel)) {
+                    if (areOtherSlotsEmpty(pContainer, offsetX, offsetY)) {
+                        return true; // Match found, return true
+                    }
                 }
             }
         }
 
-        // Check if only one direction matches
-        return forwardMatch != backwardMatch;
+        return false; // No match found
     }
 
-    private boolean matchesReversed(SimpleContainer pContainer, int startX, int startY) {
-        // Check if the reversed pattern matches the container contents
-        for (int x = this.width - 1; x >= 0; x--) {
-            for (int y = 0; y < this.height; y++) {
-                Ingredient ingredient = this.recipeItems.get(x + y * this.width);
-                if (!ingredient.test(pContainer.getItem(startX + (this.width - x - 1) + (startY + y) * 3))) {
+    private boolean areOtherSlotsEmpty(SimpleContainer pContainer, int offsetX, int offsetY) {
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                if (i < offsetX || i >= offsetX + this.getWidth() || j < offsetY || j >= offsetY + this.getHeight()) {
+                    ItemStack itemStack = pContainer.getItem(i + j * 3); // Use a fixed grid size of 3x3
+                    if (!itemStack.isEmpty()) {
+                        return false; // Slot is not empty
+                    }
+                }
+            }
+        }
+        return true; // All other slots are empty
+    }
+
+    private boolean checkIngredients(SimpleContainer pContainer, int offsetX, int offsetY, boolean[][] slotUsed) {
+        // Iterate over the recipe's dimensions
+        for (int i = 0; i < this.getWidth(); ++i) {
+            for (int j = 0; j < this.getHeight(); ++j) {
+                int gridX = i + offsetX;
+                int gridY = j + offsetY;
+
+                // Check if the current position is within the crafting grid
+                if (gridX >= 3 || gridY >= 3) {
+                    continue;
+                }
+
+                // Check if the slot is already used by another recipe
+                if (slotUsed[gridX][gridY]) {
                     return false;
                 }
-            }
-        }
-        return true;
-    }
 
+                Ingredient recipeIngredient = this.recipeItems.get(i + j * this.getWidth());
+                ItemStack gridStack = pContainer.getItem(gridX + gridY * 3); // Use a fixed grid size of 3x3
 
-    private boolean matches(SimpleContainer pContainer, int startX, int startY) {
-        for (int x = 0; x < this.width; x++) {
-            for (int y = 0; y < this.height; y++) {
-                Ingredient ingredient = this.recipeItems.get(x + y * this.width);
-                if (!ingredient.test(pContainer.getItem(startX + x + (startY + y) * 3))) {
+                // Check if the ingredient matches the item in the crafting grid
+                if (!recipeIngredient.test(gridStack)) {
                     return false;
                 }
+
+                // Mark the slot as used
+                slotUsed[gridX][gridY] = true;
             }
         }
-        return true;
+
+        return true; // All ingredients matched
     }
+
+
 
     private boolean hasRequiredFuel(SimpleContainer pContainer, Level pLevel) {
         ItemStack fuelStack = pContainer.getItem(9);

@@ -1,20 +1,24 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XX#",
-    "X#@",
-    "#  "
-  ],
+  "type": "modestmining:forging_shaped",
+  "cooktime": 144,
   "key": {
-    "#": {
+    "X": {
       "item": "minecraft:stick"
     },
-    "X": {
+    "#": {
       "tag": "modestmining:gold_pieces"
     },
     "@": {
       "item": "modestmining:gold_piece"
     }
+  },
+  "pattern": [
+    "##X",
+    "#X@",
+    "X  "
+  ],
+  "fuel": {
+    "item": "modestmining:coke"
   },
   "result": {
     "item": "modestmining:golden_glaive"

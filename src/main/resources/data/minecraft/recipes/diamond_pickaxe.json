@@ -1,17 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX",
-    " # ",
-    " # "
-  ],
+  "type": "modestmining:forging_shaped",
+  "cooktime": 144,
   "key": {
-    "#": {
+    "X": {
       "item": "minecraft:stick"
     },
-    "X": {
+    "#": {
       "tag": "modestmining:diamond_pieces"
     }
+  },
+  "pattern": [
+    "###",
+    " X ",
+    " X "
+  ],
+  "fuel": {
+    "item": "modestmining:coke"
   },
   "result": {
     "item": "minecraft:diamond_pickaxe"

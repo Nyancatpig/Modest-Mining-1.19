@@ -1,17 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " # ",
-    " X ",
-    " X "
-  ],
+  "type": "modestmining:forging_shaped",
+  "cooktime": 144,
   "key": {
-    "#": {
-      "item": "modestmining:amethyst"
-    },
     "X": {
       "item": "minecraft:copper_ingot"
+    },
+    "#": {
+      "item": "modestmining:amethyst"
     }
+  },
+  "pattern": [
+    "#",
+    "X",
+    "X"
+  ],
+  "fuel": {
+    "item": "modestmining:coke"
   },
   "result": {
     "item": "minecraft:spyglass"

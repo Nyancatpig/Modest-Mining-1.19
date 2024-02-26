@@ -1,14 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "XXX",
-    "X X",
-    "X X"
-  ],
+  "type": "modestmining:forging_shaped",
+  "cooktime": 144,
   "key": {
-    "X": {
+    "#": {
       "tag": "modestmining:iron_platings"
     }
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "# #"
+  ],
+  "fuel": {
+    "item": "modestmining:coke"
   },
   "result": {
     "item": "minecraft:iron_leggings"

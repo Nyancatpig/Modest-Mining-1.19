@@ -1,20 +1,24 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "X",
-    "#",
-    "B"
-  ],
+  "type": "modestmining:forging_shaped",
+  "cooktime": 144,
   "key": {
-    "#": {
+    "X": {
       "item": "minecraft:copper_ingot"
     },
-    "X": {
+    "#": {
       "item": "modestmining:amethyst"
     },
     "B": {
       "item": "modestmining:copper_screw"
     }
+  },
+  "pattern": [
+    "#",
+    "X",
+    "B"
+  ],
+  "fuel": {
+    "item": "modestmining:coke"
   },
   "result": {
     "item": "modestmining:chisel"

@@ -1,5 +1,6 @@
 {
   "type": "modestmining:forging",
+  "cooktime": 144,
   "ingredients": [
     {
       "item": "minecraft:gold_ingot"
@@ -26,13 +27,10 @@
       "item": "oreganized:silver_ingot"
     }
   ],
-  "output": {
-    "item": "oreganized:electrum_ingot"
+  "fuel": {
+    "item": "minecraft:blaze_powder"
   },
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "oreganized"
-    }
-  ]
+  "result": {
+    "item": "oreganized:electrum_ingot"
+  }
 }
